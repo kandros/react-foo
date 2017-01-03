@@ -13,3 +13,5 @@
 - generator reducer
 - generator selectot
 - undo command
+
+? usare template literals al post di ejs?

@@ -1,39 +1,51 @@
 'use strict';
-const chalk  = require('chalk')
+
+const chalk = require('chalk')
 const getConfig = require('./getConfig')
 const renderBlueprint = require('./renderBlueprint')
 const renderTargetPath = require('./renderTargetPath')
 const writefile = require('writefile')
+const fs = require('fs')
 
 
 const capitalize = (n) => n.charAt(0).toUpperCase() + n.slice(1)
 
 class Generate {
-    constructor(args) {
+    constructor(args, options) {
         this.config = getConfig()
         this.blueprints = this.config.blueprints
-        this._processArgs(args);
+        this.blueprintName = options.blueprintName
+        this._processArgs(args)
     }
 
     _processArgs(args) {
-        this.entityName  = capitalize(args[0])
+        this.entityName = capitalize(args[0])
     }
 
     run() {
-        console.log('Created files:')
-        this.blueprints.forEach(b => {
-            b.files.forEach(f => {
 
-                const path = f['blueprint-path'];
+        this.blueprints
+            .filter(b => b.name === this.blueprintName)
+            .forEach(b => {
+                b.files.forEach(f => {
 
-                const template = renderBlueprint(path, this.entityName)
-                const targetPath = renderTargetPath(f['target-path'], this.entityName)
+                    const path = f['blueprint-path']
 
-                writefile(targetPath, template, () => {
-                    console.log(chalk.green(targetPath))
+                    const targetPath = renderTargetPath(f['target-path'], this.entityName)
+
+                    if (fs.existsSync(targetPath)) {
+                        console.log(`Skipped (already exists):  ${chalk.red(targetPath)}`)
+
+                    } else {
+
+                        const template = renderBlueprint(path, this.entityName)
+
+                        writefile(targetPath, template, () => {
+                            console.log(`File created:  ${chalk.green(targetPath)}`)
+                        })
+                    }
                 })
             })
-        })
     }
 }
 

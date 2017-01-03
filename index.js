@@ -8,6 +8,7 @@ program
     .description('Generate components, routes and other goodies')
     //.arguments('<generator> [args]')
     .option('--component')
+    .option('--redux')
     .parse(process.argv)
 
 if (!program.args.length) {
@@ -15,6 +16,10 @@ if (!program.args.length) {
 }
 
 if (program.component) {
-    new GenerateComponent([...program.args]).run()
+    new GenerateComponent([...program.args], {blueprintName: 'component'}).run()
+}
+
+if (program['redux']) {
+    new GenerateComponent([...program.args], {blueprintName: 'redux'}).run()
 }
 
