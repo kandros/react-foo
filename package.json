@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Utilities for ReactJS projects",
   "main": "index.js",
+  "bin": {
+    "react-foo": "index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
