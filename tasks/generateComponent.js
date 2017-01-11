@@ -1,16 +1,21 @@
-'use strict';
+// @flow weak
+'use strict'
 
+import type {Config, Blueprint} from '../types'
 const chalk = require('chalk')
 const getConfig = require('./getConfig')
 const renderBlueprint = require('./renderBlueprint')
 const renderTargetPath = require('./renderTargetPath')
 const writefile = require('writefile')
 const fs = require('fs')
-
-
-const capitalize = (n) => n.charAt(0).toUpperCase() + n.slice(1)
+const capitalize = require('../utils/capitalize')
 
 class Generate {
+    config: Config
+    blueprints: Blueprint
+    blueprintName: string
+    entityName: string
+
     constructor(args, options) {
         this.config = getConfig()
         this.blueprints = this.config.blueprints
@@ -23,7 +28,6 @@ class Generate {
     }
 
     run() {
-
         this.blueprints
             .filter(b => b.name === this.blueprintName)
             .forEach(b => {
