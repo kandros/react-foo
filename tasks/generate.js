@@ -7,8 +7,7 @@ const getConfig = require('./getConfig')
 const renderBlueprint = require('./renderBlueprint')
 const renderTargetPath = require('./renderTargetPath')
 const writefile = require('writefile')
-
-const capitalize = (s: string): string => s.charAt(0).toUpperCase() + s.slice(1)
+const capitalize = require('../utils/capitalize')
 
 class Generate {
     config: Config
