@@ -1,3 +1,4 @@
+// @flow weak
 'use strict';
 const chalk  = require('chalk')
 const getConfig = require('./getConfig')
@@ -9,6 +10,10 @@ const writefile = require('writefile')
 const capitalize = (n) => n.charAt(0).toUpperCase() + n.slice(1)
 
 class Generate {
+    config: Object;
+    blueprints: Object;
+    entityName: Object;
+
     constructor(args) {
         this.config = getConfig()
         this.blueprints = this.config.blueprints

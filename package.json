@@ -16,5 +16,8 @@
     "commander": "^2.9.0",
     "ejs": "^2.5.5",
     "writefile": "^0.2.8"
+  },
+  "devDependencies": {
+    "flow-bin": "^0.37.4"
   }
 }
