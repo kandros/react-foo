@@ -1,6 +1,9 @@
+// @flow
 'use strict';
 
-const constants = {
+const constants: {
+    [key: string]: string
+} = {
     configFilename: 'react-foo.js',
 }
 

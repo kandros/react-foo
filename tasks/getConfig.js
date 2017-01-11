@@ -1,14 +1,15 @@
 // @flow
 'use strict';
 
+import type {Config} from '../types';
 const chalk = require('chalk')
 const constants = require('../constants')
 const validateConfig = require('./validateConfig')
-
 const configFilePath = process.cwd() + '/' + constants.configFilename
 
-module.exports = function getConfig() {
+module.exports = function getConfig(): Config {
     try {
+        // $FlowFixMe
         const config = require(configFilePath)
 
         if (!validateConfig(config)) {

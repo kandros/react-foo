@@ -1,27 +1,28 @@
 // @flow weak
-'use strict';
-const chalk  = require('chalk')
+'use strict'
+
+import type {Config, Blueprint} from '../types'
+const chalk = require('chalk')
 const getConfig = require('./getConfig')
 const renderBlueprint = require('./renderBlueprint')
 const renderTargetPath = require('./renderTargetPath')
 const writefile = require('writefile')
 
-
-const capitalize = (n) => n.charAt(0).toUpperCase() + n.slice(1)
+const capitalize = (s: string): string => s.charAt(0).toUpperCase() + s.slice(1)
 
 class Generate {
-    config: Object;
-    blueprints: Object;
-    entityName: Object;
+    config: Config
+    blueprints: Blueprint
+    entityName: string
 
     constructor(args) {
         this.config = getConfig()
         this.blueprints = this.config.blueprints
-        this._processArgs(args);
+        this._processArgs(args)
     }
 
     _processArgs(args) {
-        this.entityName  = capitalize(args[0])
+        this.entityName = capitalize(args[0])
     }
 
     run() {
@@ -30,7 +31,7 @@ class Generate {
         this.blueprints.forEach(b => {
             b.files.forEach(f => {
 
-                const path = f['blueprint-path'];
+                const path = f['blueprint-path']
                 console.log(chalk.green('---------------------'))
                 console.log(path)
 
@@ -38,7 +39,7 @@ class Generate {
                 const targetPath = renderTargetPath(f['target-path'], this.entityName)
 
                 console.log(targetPath)
-                
+
                 writefile(targetPath, template)
             })
         })
