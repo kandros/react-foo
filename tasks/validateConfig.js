@@ -1,4 +1,7 @@
-const validateConfig = config => {
+// @flow
+import type {Config} from '../types'
+
+module.exports = function validateConfig(config: Config): boolean {
     let valid = true
     const requiredKeys = ['blueprints']
     const requiredBlueprintKeys = ['name', 'description', 'usage', 'files']
@@ -24,5 +27,3 @@ const validateConfig = config => {
 
     return valid
 }
-
-module.exports = validateConfig
