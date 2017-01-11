@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 const program = require('commander')
 const GenerateComponent = require('./tasks/generateComponent')

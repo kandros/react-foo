@@ -7,7 +7,8 @@
     "react-foo": "index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint"
   },
   "author": "jaga santagostino (http://github.com/kandros)",
   "license": "ISC",

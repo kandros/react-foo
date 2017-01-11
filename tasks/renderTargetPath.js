@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 const fs = require('fs')
 const ejs = require('ejs')
@@ -11,5 +11,5 @@ module.exports = function renderBlueprint(template, entityName) {
         helpers: {
             capitalize
         },
-    });
+    })
 }

@@ -1,7 +1,7 @@
 // @flow
-'use strict';
+'use strict'
 
-import type {Config} from '../types';
+import type {Config} from '../types'
 const chalk = require('chalk')
 const constants = require('../constants')
 const validateConfig = require('./validateConfig')
