@@ -4,12 +4,14 @@
   "description": "Utilities for ReactJS projects",
   "main": "index.js",
   "bin": {
-    "react-foo": "index.js"
+    "react-foo": "index.js",
+    "react-foo-stripped": "stripped.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "eslint": "eslint",
-    "todo":  "git add ./todo.md && git commit -m 'add todo'"
+    "todo": "git add ./todo.md && git commit -m 'add todo'",
+    "build": "rollup --config"
   },
   "author": "jaga santagostino (http://github.com/kandros)",
   "license": "ISC",
@@ -21,6 +23,7 @@
     "writefile": "^0.2.8"
   },
   "devDependencies": {
+    "flow-remove-types": "^1.1.2",
     "babel-eslint": "^7.1.1",
     "eslint": "^3.13.1",
     "eslint-config-standard": "^6.2.1",

@@ -9,10 +9,6 @@ const config: Config = {
             'usage': 'dumb-s [component-name]',
             'files': [
                 {
-                    'blueprint-path': 'blueprints/redux/store.js',
-                    'target-path': 'redux/store.js'
-                },
-                {
                     'blueprint-path': 'blueprints/redux/reducers/root-reducer.js',
                     'target-path': 'redux/reducers/root-reducer.js'
                 },
