@@ -5,6 +5,7 @@
   "main": "index.js",
   "bin": {
     "react-foo": "index.js",
+    "rc": "index.js",
     "react-foo-stripped": "stripped.js"
   },
   "scripts": {

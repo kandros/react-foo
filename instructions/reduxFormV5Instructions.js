@@ -10,4 +10,6 @@ import {${yellow('reducer')} as ${yellow('form')}} from ${yellow('redux-form')} 
 return combineReducers({
     ${yellow('form')} ${grey('// add this')}
 })
+
+run npm install redux-form@5
 `

@@ -5,10 +5,11 @@ import type {Config} from '../types'
 const chalk = require('chalk')
 const constants = require('../constants')
 const validateConfig = require('./validateConfig')
-const configFilePath = process.cwd() + '/' + constants.configFilename
+const getUserPathOrFallbackToDefault = require('../utils/getUserDefinedPathOrFallbackToDefault')
 
 module.exports = function getConfig(): Config {
     try {
+        const configFilePath = getUserPathOrFallbackToDefault(constants.configFilename)
         // $FlowFixMe
         const config = require(configFilePath)
 

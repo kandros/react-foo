@@ -40,7 +40,6 @@ class Generate {
 
                         if (fs.existsSync(targetPath)) {
                             console.log(`Skipped (already exists):  ${chalk.red(targetPath)}`)
-                            reject()
                         } else {
 
                             const template = renderBlueprint(path, this.entityName)
