@@ -7,11 +7,15 @@
   - have semicolons
   - have constructor
   - Component imported as named
+  - flow (inpact proptypes) 
   
 - generator HOC
 - generator redux form
 - generator reducer
 - generator selectot
 - undo command
+
+-pass proptype as string
+
 
 ? usare template literals al post di ejs?
