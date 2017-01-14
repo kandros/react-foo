@@ -9,12 +9,12 @@ const config: Config = {
             'usage': 'dumb-s [component-name]',
             'files': [
                 {
-                    'blueprint-path': 'blueprints/redux/reducers/root-reducer.js',
-                    'target-path': 'redux/reducers/root-reducer.js'
+                    'blueprint-path': 'blueprints/redux-form-v5/container.ejs',
+                    'target-path': 'components/<%= helpers.capitalize(name) %>/<%= helpers.capitalize(name) %>Container.js'
                 },
                 {
-                    'blueprint-path': 'blueprints/redux/reducers/app-reducer.js',
-                    'target-path': 'redux/reducers/app-reducer.js'
+                    'blueprint-path': 'blueprints/redux-form-v5/presentational.ejs',
+                    'target-path': 'components/<%= helpers.capitalize(name) %>/<%= helpers.capitalize(name) %>Presentational.js'
                 }
             ]
         },

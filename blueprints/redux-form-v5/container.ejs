@@ -15,5 +15,6 @@ class <%= helpers.capitalize(name) %> extends Component {
 
 
 export default reduxForm({
+  form: <%= name %>,
   fields:[]
-})(%= helpers.capitalize(name) %);
+})(<%= helpers.capitalize(name) %>);
