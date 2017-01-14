@@ -9,7 +9,7 @@
     "react-foo-stripped": "stripped.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "eslint": "eslint",
     "todo": "git add ./todo.md && git commit -m 'add todo'",
     "build": "rollup --config"

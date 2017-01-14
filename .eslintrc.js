@@ -9,6 +9,9 @@ module.exports = {
         "promise",
         "flowtype"
     ],
+    globals: [
+      'jest'
+    ],
     "rules": {
         "indent": [1, 4],
         "space-before-function-paren": [2, "never"],
