@@ -4,6 +4,34 @@ import type {Config} from './types'
 const config: Config = {
     blueprints: [
         {
+            'name': 'add-react-router-v3',
+            'description': 'Generates a dumb react component in shared components',
+            'usage': 'dumb-s [component-name]',
+            'files': [
+                {
+                    'blueprint-path': 'blueprints/react-router-v3/Router.js',
+                    'target-path': 'components/Router.js'
+                },
+                {
+                    'blueprint-path': 'blueprints/react-router-v3/routes.js',
+                    'target-path': 'routes.js'
+                },
+                {
+                    'blueprint-path': 'blueprints/react-router-v3/AppContainer.js',
+                    'target-path': 'components/AppContainer.js'
+                },
+                {
+                    'blueprint-path': 'blueprints/react-router-v3/HomePage.js',
+                    'target-path': 'components/HomePage.js'
+                },
+                {
+                    'blueprint-path': 'blueprints/react-router-v3/AboutPage.js',
+                    'target-path': 'components/AboutPage.js'
+                }
+
+            ]
+        },
+        {
             'name': 'redux-form-v5',
             'description': 'Generates a dumb react component in shared components',
             'usage': 'dumb-s [component-name]',
@@ -19,7 +47,7 @@ const config: Config = {
             ]
         },
         {
-            'name': 'redux',
+            'name': 'add-redux',
             'description': 'Generates a dumb react component in shared components',
             'usage': 'dumb-s [component-name]',
             'files': [
