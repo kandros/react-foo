@@ -24,7 +24,9 @@ class Generate {
     }
 
     _processArgs(args) {
-        this.entityName = capitalize(args[0])
+        if (typeof args[0] === 'string') {
+            this.entityName = capitalize(args[0])
+        }
     }
 
     run() {
