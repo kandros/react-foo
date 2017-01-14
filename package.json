@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "eslint": "eslint"
+    "eslint": "eslint",
+    "todo":  "git add ./todo.md && git commit -m 'add todo'"
   },
   "author": "jaga santagostino (http://github.com/kandros)",
   "license": "ISC",
