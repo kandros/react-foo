@@ -28,28 +28,32 @@ class Generate {
     }
 
     run() {
-        this.blueprints
-            .filter(b => b.name === this.blueprintName)
-            .forEach(b => {
-                b.files.forEach(f => {
+        return new Promise((resolve, reject) => {
+            this.blueprints
+                .filter(b => b.name === this.blueprintName)
+                .forEach(b => {
+                    b.files.forEach(f => {
 
-                    const path = f['blueprint-path']
+                        const path = f['blueprint-path']
 
-                    const targetPath = renderTargetPath(f['target-path'], this.entityName)
+                        const targetPath = renderTargetPath(f['target-path'], this.entityName)
 
-                    if (fs.existsSync(targetPath)) {
-                        console.log(`Skipped (already exists):  ${chalk.red(targetPath)}`)
+                        if (fs.existsSync(targetPath)) {
+                            console.log(`Skipped (already exists):  ${chalk.red(targetPath)}`)
+                            reject()
+                        } else {
 
-                    } else {
+                            const template = renderBlueprint(path, this.entityName)
 
-                        const template = renderBlueprint(path, this.entityName)
-
-                        writefile(targetPath, template, () => {
-                            console.log(`File created:  ${chalk.green(targetPath)}`)
-                        })
-                    }
+                            writefile(targetPath, template, () => {
+                                console.log(`File created:  ${chalk.green(targetPath)}`)
+                            })
+                        }
+                        resolve()
+                    })
                 })
-            })
+        })
+
     }
 }
 
